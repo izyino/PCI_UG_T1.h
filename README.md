@@ -164,7 +164,7 @@ x.begin();<br>
 //movimenta o motor de passo n.0 (conectado em CN1), tipo 28BYJ-48, <br>
 //velocidade 3, sentido horário, 2048 passos:<br>
 
-//via chamada convencional:<br>  
+//via chamada convencional:
 x.runStep(0, 2048, 3, true);<br>
 
 //via acesso direto as variáveis da biblioteca:<br>
@@ -173,9 +173,9 @@ x.xtipostep[0]=2; x.xvelstep[0]=3; x.xcwstep[0]=1; x.xsteps[0]=2048;<br>
 
 //para saber se o motor de passo n.0 já chegou ao destino, fazer<br>
 //via chamada convencional:<br>
-if (x.where(0)>0) {ainda não chegou ao destino. Está em movimento...};
+if (x.where(0)>0) {ainda não chegou ao destino. Está em movimento...};<br>
 
-//via acesso direto as variáveis da biblioteca:
+//via acesso direto as variáveis da biblioteca:<br>
 if (x.xsteps[0]>0) {ainda não chegou ao destino. Está em movimento...};<br>
 
 //a qualquer momento o movimento do motor de passo n.0 pode ser interrompido<br>
@@ -189,7 +189,7 @@ x.xsteps[0]=0;<br>
 //movimenta o motor DC n.3 (conectado aos pinos 3 e 4 do CN2),<br>
 //velocidade 75%, sentido anti-horário, durante 15segundos:<br>
 
-//via chamada convencional: <br> 
+//via chamada convencional:
 x.runDC(3, 15000, 75, false);<br>
 
 //via acesso direto as variáveis da biblioteca:<br>
@@ -206,7 +206,7 @@ x.xtime[3]=0;<br>
 --------------------------------------------------------------------------------------------------------
 //emite 10 beeps de 2KHz de 0,5s com pausa interbeeps de 0,25s:<br>
 
-//via chamada convencional:<br>  
+//via chamada convencional: 
 x.beep(10, 500, 2000, 250);<br>
 
 //via acesso direto as variáveis da biblioteca:<br>
@@ -223,7 +223,7 @@ x.bnum=0;<br>
 --------------------------------------------------------------------------------------------------------
 //pisca o Led 50 vezes com 0,25s aceso seguido de 0,10s apagado: <br>
 
-//via chamada convencional: <br> 
+//via chamada convencional:
 x.led(50, 250, 100);<br>
 
 //via acesso direto as variáveis da biblioteca:<br>
