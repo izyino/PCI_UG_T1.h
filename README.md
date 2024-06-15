@@ -1,4 +1,4 @@
-Para facilitar o desenvolvimento de aplicações a serem hospedadas na placa PCI_UG_T1, foi criada uma biblioteca de mesmo nome (PCI_UG_T1.h), disponível em https://github.com/AntonioFromBrazil/PCI_UG_T1.h a qual dispõe das seguintes funções:
+Para facilitar o desenvolvimento de aplicações a serem hospedadas na placa PCI_UG_T1, foi criada uma biblioteca de mesmo nome (PCI_UG_T1.h), disponível em https://github.com/izyino/PCI_UG_T1.h a qual dispõe das seguintes funções:
 --------------------------------------------------------------------------------------------------------
 
 #include <PCI_UG_T1.h>
@@ -11,10 +11,10 @@ PCI_UG_T1 x(t0, t1);
 
 comando construtor que deve ser informado logo após o include, sendo t0, t1 variáveis do tipo uint8_t que definem o tipo de motor conectado a CN1 e CN2 respectivamente, sendo possível os seguintes valores:
 
-0 – Para motor DC
-1 – Para motor 28byj-48, 2048 passos por volta, baixo torque, baixo consumo
-2 – Para motor 28byj-48, 2048 passos por volta, alto torque, alto consumo
-3 – Para motor 28byj-48, 4096 passos por volta, médio torque, médio consumo
+0 – Para motor DC<br>
+1 – Para motor 28byj-48, 2048 passos por volta, baixo torque, baixo consumo<br>
+2 – Para motor 28byj-48, 2048 passos por volta, alto torque, alto consumo<br>
+3 – Para motor 28byj-48, 4096 passos por volta, médio torque, médio consumo<br>
 
 --------------------------------------------------------------------------------------------------------
 x.begin();
@@ -45,9 +45,9 @@ x.runDC(n, time, veldc, cwdc);
 comando que ativa o motor DC, de forma automática e assíncrona, conforme as seguintes variáveis:
 
 n – variável uint8_t com número do motor DC que será movimentado (0, 1, 2 ou 3): Se	n=0,	o motor DC deverá estar conectado aos pinos 1 e 2 do CN1
-Se	n=1,	o motor DC deverá estar conectado aos pinos 3 e 4 do CN1
-Se	n=2,	o motor DC deverá estar conectado aos pinos 1 e 2 do CN2
-Se	n=3,	o motor DC deverá estar conectado aos pinos 3 e 4 do CN2
+Se	n=1,	o motor DC deverá estar conectado aos pinos 3 e 4 do CN1<br>
+Se	n=2,	o motor DC deverá estar conectado aos pinos 1 e 2 do CN2<br>
+Se	n=3,	o motor DC deverá estar conectado aos pinos 3 e 4 do CN2<br>
  
 time – variável uint32_t contendo o tempo em milisegundos que o motor DC ficará ativado
 
