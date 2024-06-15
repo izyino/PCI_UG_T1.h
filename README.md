@@ -26,7 +26,9 @@ x.runStep(n, steps, velstep, cwstep);
 
 comando que ativa o motor de passo, de forma automática e assíncrona, conforme as seguintes variáveis:
 
-n – variável uint8_t contendo o número do motor que será movimentado (0 ou 1). Se n=0, o motor de passo deverá estar conectado ao CN1. Se n=1, o motor de passo deverá estar conectado ao CN2
+n – variável uint8_t contendo o número do motor que será movimentado (0 ou 1)<br>
+Se n=0, o motor de passo deverá estar conectado ao CN1<br>
+Se n=1, o motor de passo deverá estar conectado ao CN2<br>
 
 steps – variável uint32_t contendo o número de passos a movimentar
 
@@ -44,7 +46,7 @@ x.runDC(n, time, veldc, cwdc);
 
 comando que ativa o motor DC, de forma automática e assíncrona, conforme as seguintes variáveis:
 
-n – variável uint8_t com número do motor DC que será movimentado (0, 1, 2 ou 3): Se	n=0,	o motor DC deverá estar conectado aos pinos 1 e 2 do CN1
+n – variável uint8_t com número do motor DC que será movimentado (0, 1, 2 ou 3): Se	n=0,	o motor DC deverá estar conectado aos pinos 1 e 2 do CN1<br>
 Se	n=1,	o motor DC deverá estar conectado aos pinos 3 e 4 do CN1<br>
 Se	n=2,	o motor DC deverá estar conectado aos pinos 1 e 2 do CN2<br>
 Se	n=3,	o motor DC deverá estar conectado aos pinos 3 e 4 do CN2<br>
@@ -164,7 +166,7 @@ x.begin();<br>
 //movimenta o motor de passo n.0 (conectado em CN1), tipo 28BYJ-48, <br>
 //velocidade 3, sentido horário, 2048 passos:<br>
 
-//via chamada convencional:
+//via chamada convencional:<br>
 x.runStep(0, 2048, 3, true);<br>
 
 //via acesso direto as variáveis da biblioteca:<br>
@@ -189,7 +191,7 @@ x.xsteps[0]=0;<br>
 //movimenta o motor DC n.3 (conectado aos pinos 3 e 4 do CN2),<br>
 //velocidade 75%, sentido anti-horário, durante 15segundos:<br>
 
-//via chamada convencional:
+//via chamada convencional:<br>
 x.runDC(3, 15000, 75, false);<br>
 
 //via acesso direto as variáveis da biblioteca:<br>
@@ -206,7 +208,7 @@ x.xtime[3]=0;<br>
 --------------------------------------------------------------------------------------------------------
 //emite 10 beeps de 2KHz de 0,5s com pausa interbeeps de 0,25s:<br>
 
-//via chamada convencional: 
+//via chamada convencional:<br>
 x.beep(10, 500, 2000, 250);<br>
 
 //via acesso direto as variáveis da biblioteca:<br>
@@ -223,7 +225,7 @@ x.bnum=0;<br>
 --------------------------------------------------------------------------------------------------------
 //pisca o Led 50 vezes com 0,25s aceso seguido de 0,10s apagado: <br>
 
-//via chamada convencional:
+//via chamada convencional:<br>
 x.led(50, 250, 100);<br>
 
 //via acesso direto as variáveis da biblioteca:<br>
@@ -239,7 +241,7 @@ x.stopLed();<br>
 --------------------------------------------------------------------------------------------------------
 //contagem de 4 segundos, de forma assíncrona:<br>
 
-//via chamada convencional:  <br>
+//via chamada convencional:<br>
 x.setms(4000);while (x.getms()>0){enquanto espera 4s, pode fazer coisas…}<br>
 
 //via acesso direto as variáveis da biblioteca:<br>
