@@ -115,34 +115,34 @@ Como alternativa para algumas das funções e comandos acima, pode-se acessar di
 
 variáveis de controle dos beeps sonoros
 --------------------------------------------------------------------------------------------------------
-x.bdur	duração dos beeps (ms)
-x.binter	pausa interbeeps (ms)
-x.bfreq	frequência dos beeps (Hz)
-x.bnum	quantidade de beep+pausa a emitir 
+x.bdur	duração dos beeps (ms)<br>
+x.binter	pausa interbeeps (ms)<br>
+x.bfreq	frequência dos beeps (Hz)<br>
+x.bnum	quantidade de beep+pausa a emitir <br>
 
 
 variáveis de controle das piscadas do Led
 --------------------------------------------------------------------------------------------------------
-x.ldur 	duração do Led aceso (ms)
-x.linter 	duração do Led apagado (ms)
-x.lnum	quantidade de piscadas
+x.ldur 	duração do Led aceso (ms)<br>
+x.linter 	duração do Led apagado (ms)<br>
+x.lnum	quantidade de piscadas<br>
 
 
 variáveis de controle dos motores de passo (índice n abaixo entre 0 e 1)
 --------------------------------------------------------------------------------------------------------
-x.xtipostep[n]	tipo do motor de passo n (pode ser 0,1,2 ou 3)
-x.xsteps[n]	quantidade de passos a mover
-x.xvelstep[n]	velocidade (1=velocidade maior)
-x.xvelnow[n]	velocidade no momento (vide .cpp)
-x.xfase[n]	fase atual do ciclo do motor  (vide .cpp)
-x.xcwstep[n]	sentido (1=true=horário, 0=false=anti-horário)
+x.xtipostep[n]	tipo do motor de passo n (pode ser 0,1,2 ou 3)<br>
+x.xsteps[n]	quantidade de passos a mover<br>
+x.xvelstep[n]	velocidade (1=velocidade maior)<br>
+x.xvelnow[n]	velocidade no momento (vide .cpp)<br>
+x.xfase[n]	fase atual do ciclo do motor  (vide .cpp)<br>
+x.xcwstep[n]	sentido (1=true=horário, 0=false=anti-horário)<br>
 
 
 variáveis de controle dos motores DC (índice n abaixo entre 0 e 3)
 --------------------------------------------------------------------------------------------------------
-x.xtime[n] 	tempo a movimentar (ms)
-x.xveldc[n]	velocidade (0=parado, 100=velocidade máxima)
-x.xcwdc[n] 	sentido (1=true=horário, 0=false=anti-horário)
+x.xtime[n] 	tempo a movimentar (ms)<br>
+x.xveldc[n]	velocidade (0=parado, 100=velocidade máxima)<br>
+x.xcwdc[n] 	sentido (1=true=horário, 0=false=anti-horário)<br>
 
 
 variável de controle temporal
