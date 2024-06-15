@@ -62,9 +62,9 @@ void loop(){
             client.println("Connection: close");
             client.println();
 
-            //quando recebe um comando do browser, emite um beep de 1s e pisca o led 50 vezes
-            x.bdur=1000;x.bfreq=2000;x.binter=0;x.bnum=1;
-            x.ldur=50;x.linter=25;x.lnum=50;
+            //quando recebe um comando do browser, emite um beep de 0.2s e pisca o led 10 vezes
+            x.bdur=200;x.bfreq=2000;x.binter=0;x.bnum=1;
+            x.ldur=50;x.linter=25;x.lnum=10;
             
             //
             // atualiza as variáveis vel, sent e graus
