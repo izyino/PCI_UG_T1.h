@@ -151,99 +151,99 @@ x.xms	quantidade desejada de milisegundos
 
 
 ############################################################################################<br>
-Exemplos de utilização da biblioteca
+Exemplos de utilização da biblioteca<br>
 
-No início do programa:
-#include <PCI_UG_T1.h>
-PCI_UG_T1.h x(2, 0);
+No início do programa:<br>
+#include <PCI_UG_T1.h><br>
+PCI_UG_T1.h x(2, 0);<br>
 
-na sessão do setup:
-x.begin();
+na sessão do setup:<br>
+x.begin();<br>
 
 --------------------------------------------------------------------------------------------------------
-//movimenta o motor de passo n.0 (conectado em CN1), tipo 28BYJ-48, 
-//velocidade 3, sentido horário, 2048 passos:
+//movimenta o motor de passo n.0 (conectado em CN1), tipo 28BYJ-48, <br>
+//velocidade 3, sentido horário, 2048 passos:<br>
 
-//via chamada convencional:  
-x.runStep(0, 2048, 3, true);
+//via chamada convencional:<br>  
+x.runStep(0, 2048, 3, true);<br>
 
-//via acesso direto as variáveis da biblioteca:
-x.xtipostep[0]=2; x.xvelstep[0]=3; x.xcwstep[0]=1; x.xsteps[0]=2048;
-//o motor começa a se movimentar imediatamente após a variável x.xsteps ser inicializada
+//via acesso direto as variáveis da biblioteca:<br>
+x.xtipostep[0]=2; x.xvelstep[0]=3; x.xcwstep[0]=1; x.xsteps[0]=2048;<br>
+//o motor começa a se movimentar imediatamente após a variável x.xsteps ser inicializada<br>
 
-//para saber se o motor de passo n.0 já chegou ao destino, fazer
-//via chamada convencional:
+//para saber se o motor de passo n.0 já chegou ao destino, fazer<br>
+//via chamada convencional:<br>
 if (x.where(0)>0) {ainda não chegou ao destino. Está em movimento...};
 
 //via acesso direto as variáveis da biblioteca:
-if (x.xsteps[0]>0) {ainda não chegou ao destino. Está em movimento...};
+if (x.xsteps[0]>0) {ainda não chegou ao destino. Está em movimento...};<br>
 
-//a qualquer momento o movimento do motor de passo n.0 pode ser interrompido
-//via chamada convencional:
-x.stopStep(0);
+//a qualquer momento o movimento do motor de passo n.0 pode ser interrompido<br>
+//via chamada convencional:<br>
+x.stopStep(0);<br>
 
-//via acesso direto as variáveis da biblioteca:
-x.xsteps[0]=0;
+//via acesso direto as variáveis da biblioteca:<br>
+x.xsteps[0]=0;<br>
 
 --------------------------------------------------------------------------------------------------------
-//movimenta o motor DC n.3 (conectado aos pinos 3 e 4 do CN2),
-//velocidade 75%, sentido anti-horário, durante 15segundos:
+//movimenta o motor DC n.3 (conectado aos pinos 3 e 4 do CN2),<br>
+//velocidade 75%, sentido anti-horário, durante 15segundos:<br>
 
-//via chamada convencional:  
-x.runDC(3, 15000, 75, false);
+//via chamada convencional: <br> 
+x.runDC(3, 15000, 75, false);<br>
 
-//via acesso direto as variáveis da biblioteca:
-x.xveldc[3]=75; x.xcwdc[3]=0; x.xtime[3]=15000;
-//o motor começa a se movimentar imediatamente após a variável x.xtime ser inicializada
+//via acesso direto as variáveis da biblioteca:<br>
+x.xveldc[3]=75; x.xcwdc[3]=0; x.xtime[3]=15000;<br>
+//o motor começa a se movimentar imediatamente após a variável x.xtime ser inicializada<br>
 
-//a qualquer momento o movimento do motor DC n.3 pode ser interrompido
-//via chamada convencional:
+//a qualquer momento o movimento do motor DC n.3 pode ser interrompido<br>
+//via chamada convencional:<br>
 x.stopDC(3);
 
-//via acesso direto as variáveis da biblioteca:
-x.xtime[3]=0;
+//via acesso direto as variáveis da biblioteca:<br>
+x.xtime[3]=0;<br>
 
 --------------------------------------------------------------------------------------------------------
-//emite 10 beeps de 2KHz de 0,5s com pausa interbeeps de 0,25s:
+//emite 10 beeps de 2KHz de 0,5s com pausa interbeeps de 0,25s:<br>
 
-//via chamada convencional:  
-x.beep(10, 500, 2000, 250);
+//via chamada convencional:<br>  
+x.beep(10, 500, 2000, 250);<br>
 
-//via acesso direto as variáveis da biblioteca:
-x.bdur=500; x.binter=250; x.bfreq=2000; x.bnum=10;
-//os beeps começam a ser emitidos imediatamente após a variável x.bnum ser inicializada
+//via acesso direto as variáveis da biblioteca:<br>
+x.bdur=500; x.binter=250; x.bfreq=2000; x.bnum=10;<br>
+//os beeps começam a ser emitidos imediatamente após a variável x.bnum ser inicializada<br>
 
-//a qualquer momento a emissão dos beeps sonoros pode ser interrompida
-//via chamada convencional:
-x.stopBeep();
+//a qualquer momento a emissão dos beeps sonoros pode ser interrompida<br>
+//via chamada convencional:<br>
+x.stopBeep();<br>
 
-//via acesso direto as variáveis da biblioteca:
-x.bnum=0;
-
---------------------------------------------------------------------------------------------------------
-//pisca o Led 50 vezes com 0,25s aceso seguido de 0,10s apagado: 
-
-//via chamada convencional:  
-x.led(50, 250, 100);
-
-//via acesso direto as variáveis da biblioteca:
-x.ldur=250; x.linter=100; x.lnum=50;
-//o Led começa a piscar imediatamente após a variável x.lnum ser inicializada
-
-//a qualquer momento as piscadas do Led podem ser interrompidas
-//via chamada convencional:
-x.stopLed();
-
-//via acesso direto as variáveis da biblioteca: x.lnum=0;
+//via acesso direto as variáveis da biblioteca:<br>
+x.bnum=0;<br>
 
 --------------------------------------------------------------------------------------------------------
-//contagem de 4 segundos, de forma assíncrona:
+//pisca o Led 50 vezes com 0,25s aceso seguido de 0,10s apagado: <br>
 
-//via chamada convencional:  
-x.setms(4000);while (x.getms()>0){enquanto espera 4s, pode fazer coisas…}
+//via chamada convencional: <br> 
+x.led(50, 250, 100);<br>
 
-//via acesso direto as variáveis da biblioteca:
-x.xms=4000; while (x.xms>0){enquanto espera 4s, pode fazer coisas…}
-//a variável x.xms começa a ser decrementada a cada um milisegundo imediatamente após ter sido inicializada
+//via acesso direto as variáveis da biblioteca:<br>
+x.ldur=250; x.linter=100; x.lnum=50;<br>
+//o Led começa a piscar imediatamente após a variável x.lnum ser inicializada<br>
+
+//a qualquer momento as piscadas do Led podem ser interrompidas<br>
+//via chamada convencional:<br>
+x.stopLed();<br>
+
+//via acesso direto as variáveis da biblioteca: x.lnum=0;<br>
+
+--------------------------------------------------------------------------------------------------------
+//contagem de 4 segundos, de forma assíncrona:<br>
+
+//via chamada convencional:  <br>
+x.setms(4000);while (x.getms()>0){enquanto espera 4s, pode fazer coisas…}<br>
+
+//via acesso direto as variáveis da biblioteca:<br>
+x.xms=4000; while (x.xms>0){enquanto espera 4s, pode fazer coisas…}<br>
+//a variável x.xms começa a ser decrementada a cada um milisegundo imediatamente após ter sido inicializada<br>
 
 ############################################################################################<br>
