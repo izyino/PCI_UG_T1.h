@@ -236,7 +236,8 @@ x.ldur=250; x.linter=100; x.lnum=50;<br>
 //via chamada convencional:<br>
 x.stopLed();<br>
 
-//via acesso direto as variáveis da biblioteca: x.lnum=0;<br>
+//via acesso direto as variáveis da biblioteca:<br>
+x.lnum=0;<br>
 
 --------------------------------------------------------------------------------------------------------
 //contagem de 4 segundos, de forma assíncrona:<br>
