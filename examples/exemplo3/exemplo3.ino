@@ -261,6 +261,8 @@ void looprede()
             client.println("Content-type:text/html");
             client.println("Connection: close");
             client.println();
+
+            x.ldur=50;x.linter=25;x.lnum=2;
         
             n = WiFi.scanNetworks();
             client.print(p1);
