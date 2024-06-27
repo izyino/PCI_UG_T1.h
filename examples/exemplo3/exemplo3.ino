@@ -18,7 +18,8 @@
 
 #include <WiFi.h>
 #include <EEPROM.h>
-#include <WiFiClient.h>  
+#include <WiFiClient.h>
+#include <TimeLib.h>  
 #include <WiFiAP.h>
 #include <PCI_UG_T1.h>
 
@@ -37,8 +38,12 @@ String p2="<tr><td align='center' bgcolor='#FFCCFF' width='100'>#AAA</td><td ali
 String p3="<tr><td colspan='4' align='center'></td></tr><form action='/ok'><tr><td colspan='4' align='center' bgcolor='#CCFF99'><b><font size='2'>REDE ESCOLHIDA</font></b></td></tr><tr><td align='center' bgcolor='#FFFF99'><b><font size='2'>nº</font></b></td><td colspan='2' align='center' bgcolor='#FFFF99'><font size='2'><b>senha</b></font></td><td align='center' rowspan='2' bgcolor='#FFCC66'><font size='2'><input type='submit' value='Submit'></font></td></tr><tr><td align='center' bgcolor='#CCFFFF'><input type='text' id='rede' name='rede' size='7'></td><td colspan='2' align='center' bgcolor='#CCFFFF'><input type='text' id='senha' name='senha' size='40'></td></tr></form></table></body></html>";
 String savP2=p2;
 
-String html="<html><head><meta charset='utf-8'><title></title></head><body><table border='0' width='600' id='table1' cellspacing='4' cellpadding='4' height='400'><tr><td colspan='6' align='center'><p align='center'><b><font size='4'>CONTROLE DO MOTOR DE PASSO<br>PARA TESTE DA PCI_UG_T1 VIA Wi-Fi</font></b></p></td></tr><tr><td colspan='6' align='center'>&nbsp;</td></tr><tr><td colspan='6' align='center' bgcolor='#FFCCFF'><font size='2'><b>VELOCIDADE</b></font></td></tr><tr><td align='center' bgcolor='#CV3' width='100'><a href='/V3'><font size='4'>&nbsp;&nbsp;3&nbsp;&nbsp;</font></td></a><td align='center' bgcolor='#CV5' width='100'><a href='/V5'><font size='4'>&nbsp;&nbsp;5&nbsp;&nbsp;</font></td></a><td align='center' bgcolor='#CV10' width='100'><a href='/V10'><font size='4'>&nbsp;&nbsp;10&nbsp;&nbsp;</font></td></a><td align='center' bgcolor='#CV20' width='100'><a href='/V20'><font size='4'>&nbsp;&nbsp;20&nbsp;&nbsp;</font></td></a><td align='center' bgcolor='#CV40' width='100'><a href='/V40'><font size='4'>&nbsp;&nbsp;40&nbsp;&nbsp;</font></td></a><td align='center' bgcolor='#CV80' width='100'><a href='/V80'><font size='4'>&nbsp;&nbsp;80&nbsp;&nbsp;</font></td></a></tr><tr><td colspan='6' align='center'>&nbsp;</td></tr><tr><td colspan='6' align='center' bgcolor='#CCFF99'><p align='center'><font size='2'><b>DIREÇÃO</b></font></td></tr><tr><td colspan='3' align='center' bgcolor='#CDE' width='300'><a href='/DE'><font size='4'>&nbsp;&nbsp;&nbsp;&nbsp;ESQUERDA&nbsp;&nbsp;&nbsp;&nbsp;</font></td></a><td colspan='3' align='center' bgcolor='#CDD' width='300'><a href='/DD'><font size='4'>&nbsp;&nbsp;&nbsp;&nbsp;DIREITA&nbsp;&nbsp;&nbsp;&nbsp;</font></td></a></tr><tr><td colspan='6' align='center'>&nbsp;</td></tr><tr><td colspan='6' align='center' bgcolor='#99CCFF'><p align='center'><font size='2'><b>MOVIMENTO</b></font></td></tr><tr><td align='center' bgcolor='#C15' width='100'><a href='/C15'><font size='4'>&nbsp;15º&nbsp;</font></td></a><td align='center' bgcolor='#C30' width='100'><a href='/C30'><font size='4'>&nbsp;30º&nbsp;</font></td></a><td align='center' bgcolor='#C45' width='100'><a href='/C45'><font size='4'>&nbsp;45º&nbsp;</font></td></a><td align='center' bgcolor='#C90' width='100'><a href='/C90'><font size='4'>&nbsp;90º&nbsp;</font></td></a><td align='center' bgcolor='#CCP' width='100'><a href='/CCP'><font size='2'>ANDA<br>PARA</font></td></a><td align='center' bgcolor='#1VS' width='100'><a href='/1VS'><font size='2'>UMA DOSE<br>VIA SENSOR</font></td></a></tr><tr><td colspan='6' align='center'><p align='center'><br><a href='/ini'>INIFLASH</a><br>Depois de clicar em INIFLASH, conectar na rede PCI_UG_T1, senha 00000000<br> Acessar 192.168.4.1 para escolher a rede a ser utilizada</p></td></tr></table></body></html>";
+String html="<html><head><meta charset='utf-8'><title></title></head><body><table border='0' width='600' id='table1' cellspacing='4' cellpadding='8' height='400'><tr><td colspan='6' align='center' bgcolor='#CCFF99'><p align='center'><b><font size='4'>CONTROLE DO MOTOR DE PASSO<br>PARA TESTE DA PCI_UG_T1 VIA Wi-Fi<br></font><font color='#0000FF' size='2'>hh:mm:ss</font></b></p></td></tr><tr><td colspan='6' align='center'></td></tr><tr><td colspan='6' align='center' bgcolor='#FFCCFF'><font size='2'><b>VELOCIDADE</b></font></td></tr><tr><td align='center' bgcolor='#CV3' width='100'><a href='/V3'><font size='4'>&nbsp;&nbsp;3&nbsp;&nbsp;</font></td></a><td align='center' bgcolor='#CV5' width='100'><a href='/V5'><font size='4'>&nbsp;&nbsp;5&nbsp;&nbsp;</font></td></a><td align='center' bgcolor='#CV10' width='100'><a href='/V10'><font size='4'>&nbsp;&nbsp;10&nbsp;&nbsp;</font></td></a><td align='center' bgcolor='#CV20' width='100'><a href='/V20'><font size='4'>&nbsp;&nbsp;20&nbsp;&nbsp;</font></td></a><td align='center' bgcolor='#CV40' width='100'><a href='/V40'><font size='4'>&nbsp;&nbsp;40&nbsp;&nbsp;</font></td></a><td align='center' bgcolor='#CV80' width='100'><a href='/V80'><font size='4'>&nbsp;&nbsp;80&nbsp;&nbsp;</font></td></a></tr><tr><td colspan='6' align='center'>&nbsp;</td></tr><tr><td colspan='6' align='center' bgcolor='#CCFF99'><p align='center'><font size='2'><b>DIREÇÃO</b></font></td></tr><tr><td colspan='3' align='center' bgcolor='#CDE' width='300'><a href='/DE'><font size='4'>&nbsp;&nbsp;&nbsp;&nbsp;ESQUERDA&nbsp;&nbsp;&nbsp;&nbsp;</font></td></a><td colspan='3' align='center' bgcolor='#CDD' width='300'><a href='/DD'><font size='4'>&nbsp;&nbsp;&nbsp;&nbsp;DIREITA&nbsp;&nbsp;&nbsp;&nbsp;</font></td></a></tr><tr><td colspan='6' align='center'>&nbsp;</td></tr><tr><td colspan='6' align='center' bgcolor='#99CCFF'><p align='center'><font size='2'><b>MOVIMENTO</b></font></td></tr><tr><td align='center' bgcolor='#C15' width='100'><a href='/C15'><font size='4'>&nbsp;15º&nbsp;</font></td></a><td align='center' bgcolor='#C30' width='100'><a href='/C30'><font size='4'>&nbsp;30º&nbsp;</font></td></a><td align='center' bgcolor='#C45' width='100'><a href='/C45'><font size='4'>&nbsp;45º&nbsp;</font></td></a><td align='center' bgcolor='#C90' width='100'><a href='/C90'><font size='4'>&nbsp;90º&nbsp;</font></td></a><td align='center' bgcolor='#CCP' width='100'><a href='/CCP'><font size='2'>ANDA<br>PARA</font></td></a><td align='center' bgcolor='#1VS' width='100'><a href='/1VS'><font size='2'>UMA DOSE<br>VIA SENSOR</font></td></a></tr><tr><td colspan='6' align='center'><p align='center'><br><a href='/ini'>INIFLASH</a><br>Depois de clicar em INIFLASH, conectar na rede PCI_UG_T1, senha 00000000<br> Acessar 192.168.4.1 para escolher a rede a ser utilizada</p></td></tr></table></body></html>";
 String copyhtml;
+
+const char* ntpServer = "pool.ntp.org"; //servidor NTP
+const long  gmtOffset_sec = -10800;     //gmt-3 (em segundos
+const int   daylightOffset_sec = 0;     //horário de verão
 
 uint32_t nsteps;   //steps a percorrer
 int      graus=30; //graus a girar (999=contínuo, 0=para)
@@ -46,7 +51,7 @@ int      vel=5;    //velocidade de deslocamento sendo máxima 3 sentido 'D'; má
 char     sent='D'; //sentido esquerda ou direita (E ou D)
 bool     eestate=false, fim=false;
 int      n,i,k;
-String   header;
+String   header, hora;
 char     c;
 
 void setup() {
@@ -86,6 +91,8 @@ void setup() {
   if (!WiFi.config(local_IP, gateway, subnet, primaryDNS, secondaryDNS)) {
     Serial.println("Falha na configuração da estação");
   }
+
+  configTime(gmtOffset_sec, daylightOffset_sec, ntpServer);
  
   IPAddress IP = WiFi.localIP();
   Serial.println("-----------------------------------------");
@@ -172,6 +179,9 @@ void loop(){
             if (graus==999){copyhtml.replace("#CCP", "#0099FF");}else{copyhtml.replace("#CCP", "#99CCFF");}
             if (graus==555){copyhtml.replace("#1VS", "#0099FF");}else{copyhtml.replace("#1VS", "#99CCFF");}
 
+            conectantp();
+            copyhtml.replace("hh:mm:ss", hora);
+            
             // envia a página com os botões atualizados
             client.println(copyhtml);
 
@@ -188,18 +198,20 @@ void loop(){
               Serial.println("");
               bool dir;
               if (sent=='D'){dir=true;}else{dir=false;}
-              while (analogRead(34)<3900){
+              while (analogRead(34)<4000){
                 Serial.print(analogRead(34));Serial.print(",");
                 while(x.xsteps[0]>0){};
                 x.runStep(0, 6, vel, dir); //gira aprox 1 grau por vez até o início de uma divisão (preto)
               }  
               Serial.println("");
               while(x.xsteps[0]>0){};
-              while (analogRead(34)>3900){
+              while (analogRead(34)>4000){
                 Serial.print(analogRead(34));Serial.print(",");
                 while(x.xsteps[0]>0){};
                 x.runStep(0, 6, vel, dir); //gira aprox 1 grau por vez até o fim da divisão (sai do preto)
               }
+              while(x.xsteps[0]>0){};
+              x.runStep(0, 18, vel, dir);  //ao final, avança aprox. 3 graus para alinhar a pá com a rampa 
             }
 
             client.println();
@@ -265,6 +277,7 @@ void looprede()
             x.ldur=50;x.linter=25;x.lnum=2;
         
             n = WiFi.scanNetworks();
+            if (n>9){n=9;}
             client.print(p1);
                   
             if (n > 0) {
@@ -354,4 +367,32 @@ void dumpflash()
   Serial.println("");
 }  
 
- 
+void conectantp(){
+  struct tm timeinfo;
+  bool chntp=false;
+  k=0;
+  uint32_t milisatu=millis();
+  while (!getLocalTime(&timeinfo)){
+    if ((k>10)||(milisatu+1000)<millis()){
+      chntp=false;break;
+    }  
+  }
+
+  if (getLocalTime(&timeinfo)){chntp=true;}
+
+  hora="??:??:??";
+  
+  if (chntp){
+    byte h,m,s;
+    h=timeinfo.tm_hour;
+    m=timeinfo.tm_min;
+    s=timeinfo.tm_sec;
+    hora="";
+
+    if (h<10){hora="0"+String(h);}else{hora=hora+String(h);}
+    hora=hora+":";
+    if (m<10){hora=hora+"0"+String(m);}else{hora=hora+String(m);}
+    hora=hora+":";
+    if (s<10){hora=hora+"0"+String(s);}else{hora=hora+String(s);}
+  }
+} 
