@@ -75,7 +75,7 @@ void loop() {
         x.runStep(0, nsteps, 5, 1); //roda motor 45 graus * doses
         while (x.xsteps[0]!=0){}    //fica 
         serviu[k]=1;
-        if (k>0){serviu[k-1]=0;}
+        if (k>0){serviu[k-1]=0;}else{serviu[3]=0;}
       }
     }
   }
