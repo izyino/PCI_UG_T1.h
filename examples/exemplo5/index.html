@@ -1,4 +1,3 @@
-const char uni_page[] PROGMEM = R"=====(
 <!DOCTYPE html>
 <html>
   <head>
@@ -352,12 +351,14 @@ const char uni_page[] PROGMEM = R"=====(
       xhttp.onreadystatechange = function() { // The readystatechange event is fired whenever the readyState property of the XMLHttpRequest changes.
         if (this.readyState == 4 && this.status == 200) { // 4 = The operation is complete.
           document.getElementById("mensagem").innerHTML = this.responseText;
-};
-};
-xhttp.open("GET", "gravapar?"+msg, true);
-xhttp.send();
-};
-</script>
-</body>
+        };
+      };
+      xhttp.open("GET", "gravapar?"+msg, true);
+      xhttp.send();
+    };
+
+    </script>
+
+  </body>
+  
 </html>
-)=====";
