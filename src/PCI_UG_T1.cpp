@@ -8,17 +8,17 @@ PCI_UG_T1::PCI_UG_T1(uint8_t t0, uint8_t t1)
   xtipostep[1]=t1;
 
   if (t0==0){
-    ledcAttachPin(14, 0);ledcWrite(0, 0);              //se motor DC em CN1, define channel 0 pino 14 (motor DC 0)
     ledcSetup(0, 1000, 8);                             //PWM sempre a 1KHz
-    ledcAttachPin(15, 1);ledcWrite(1, 0);              //define channel 1 pino 15 (motor DC 1)
+    ledcAttachPin(14, 0);ledcWrite(0, 0);              //se motor DC em CN1, define channel 0 pino 14 (motor DC 0)
     ledcSetup(1, 1000, 8);                             //PWM sempre a 1KHz  
+    ledcAttachPin(15, 1);ledcWrite(1, 0);              //define channel 1 pino 15 (motor DC 1)
   }
 
   if (t1==0){
-    ledcAttachPin(25, 2);ledcWrite(2, 0);              //se motor DC em CN1, define channel 2 pino 25 (motor DC 2)
     ledcSetup(2, 1000, 8);                             //PWM sempre a 1KHz
-    ledcAttachPin(26, 3);ledcWrite(3, 0);              //define channel 3 pino 26 (motor DC 3)
+    ledcAttachPin(25, 2);ledcWrite(2, 0);              //se motor DC em CN1, define channel 2 pino 25 (motor DC 2)
     ledcSetup(3, 1000, 8);                             //PWM sempre a 1KHz
+    ledcAttachPin(26, 3);ledcWrite(3, 0);              //define channel 3 pino 26 (motor DC 3)
   }
 }
 
