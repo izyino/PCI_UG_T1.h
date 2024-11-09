@@ -1,4 +1,4 @@
-Para facilitar o desenvolvimento de aplicações a serem hospedadas na placa PCI_UG_T1, foi criada uma biblioteca de mesmo nome (PCI_UG_T1.h), disponível em https://github.com/AntonioFromBrazil/PCI_UG_T1.h a qual dispõe das seguintes funções:
+Para facilitar o desenvolvimento de aplicações a serem hospedadas na placa PCI_UG_T1 e T2, foi criada uma biblioteca de mesmo nome (PCI_UG_T1.h), disponível em https://github.com/AntonioFromBrazil/PCI_UG_T1.h a qual dispõe das seguintes funções:
 --------------------------------------------------------------------------------------------------------
 
 #include <PCI_UG_T1.h>
