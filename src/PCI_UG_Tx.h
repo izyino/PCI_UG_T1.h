@@ -55,7 +55,7 @@ class PCI_UG_Tx {
   void move3();
   void move4();
   void writ(uint8_t px1, uint8_t px2, uint8_t px3, uint8_t px4);
-  static PCI_UG_T1 *isrTable[];
+  static PCI_UG_Tx *isrTable[];
   using isrFunct = void (*)();
   template<uint8_t NUM_INTERRUPTS = SOC_TIMER_GROUP_TOTAL_TIMERS>
   static isrFunct getIsr(uint8_t timerNumber);
@@ -74,7 +74,7 @@ class PCI_UG_Tx {
 
 
 template<uint8_t NUM_INTERRUPTS>
-PCI_UG_Tx::isrFunct PCI_UG_T1::getIsr(uint8_t timerNumber) {
+PCI_UG_Tx::isrFunct PCI_UG_Tx::getIsr(uint8_t timerNumber) {
   if (timerNumber == (NUM_INTERRUPTS - 1)) {
     return [] {
       isrTable[NUM_INTERRUPTS - 1]->onTimer1ms();
@@ -84,7 +84,7 @@ PCI_UG_Tx::isrFunct PCI_UG_T1::getIsr(uint8_t timerNumber) {
 }
 
 template<>
-inline PCI_UG_Tx::isrFunct PCI_UG_T1::getIsr<0>(uint8_t timerNumber) {
+inline PCI_UG_Tx::isrFunct PCI_UG_Tx::getIsr<0>(uint8_t timerNumber) {
   (void) timerNumber;
   return nullptr;
 }
